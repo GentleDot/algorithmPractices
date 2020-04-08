@@ -1,4 +1,4 @@
-package slidingWindow;
+package commonSolvingPattern.slidingWindow;
 
 public class maxSumOfSubArray {
     public static void main(String[] args) {

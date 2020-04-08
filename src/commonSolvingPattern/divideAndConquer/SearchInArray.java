@@ -1,7 +1,6 @@
-package divideAndConquer;
+package commonSolvingPattern.divideAndConquer;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class SearchInArray {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package multiplePointers;
+package commonSolvingPattern.multiplePointers;
 
 public class CountUniqueValues {
     public static void main(String[] args) {
