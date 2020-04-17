@@ -7,7 +7,7 @@ public class ExampleOne {
     }
 
     public static void countDownRecursive(int num) {
-        if (num <= 0){
+        if (num <= 0) {
             System.out.println("완료!");
             return;
         }
@@ -17,10 +17,11 @@ public class ExampleOne {
     }
 
     public static void countDownLoop(int num) {
-        for (int i = num; i > 0 ; i--) {
+        for (int i = num; i > 0; i--) {
             System.out.println(i);
         }
 
         System.out.println("완료!");
     }
+
 }
