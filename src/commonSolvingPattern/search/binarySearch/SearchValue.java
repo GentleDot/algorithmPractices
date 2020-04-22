@@ -2,7 +2,7 @@ package commonSolvingPattern.search.binarySearch;
 
 public class SearchValue {
     public static void main(String[] args) {
-        System.out.println(binarySearch(new int[]{2,5,6,9,13,15,28,30}, 50));
+        System.out.println(binarySearch(new int[]{2,4,5,9,11,14,15,19,21,25,28,30,50,52,60,63}, 28));
     }
 
     public static Integer binarySearch(int[] arr, int val) {
@@ -18,11 +18,11 @@ public class SearchValue {
         int middle = (startPointer + endPointer) / 2;
 
         // 시작지점 포인터가 종료지점 포인터 앞에 오는 동안 loop
-            // 중간지점의 값을 확인
-            // 중간 값이 설정 값과 같다면 index를 반환
-            // 중간 값이 설정 값보다 크다면 종료지점은 중간지점 - 1
-            // 중간 값이 설정 값보다 작다면 시작지점은 중간지점 + 1
-            // 중간지점 재설정
+        // 중간지점의 값을 확인
+        // 중간 값이 설정 값과 같다면 index를 반환
+        // 중간 값이 설정 값보다 크다면 종료지점은 중간지점 - 1
+        // 중간 값이 설정 값보다 작다면 시작지점은 중간지점 + 1
+        // 중간지점 재설정
         while (startPointer <= endPointer) {
             int targetValue = arr[middle];
             if (targetValue == val) {
