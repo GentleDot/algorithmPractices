@@ -1,4 +1,4 @@
-package search.binarySearch;
+package howToSolve.search.binarySearch;
 
 public class SearchValue {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package commonSolvingPattern.multiplePointers;
+package howToSolve.commonSolvingPattern.multiplePointers;
 
 import java.util.Arrays;
 

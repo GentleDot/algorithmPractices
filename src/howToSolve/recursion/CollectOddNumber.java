@@ -1,4 +1,4 @@
-package recursion;
+package howToSolve.recursion;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package commonSolvingPattern.divideAndConquer;
+package howToSolve.commonSolvingPattern.divideAndConquer;
 
 import java.util.Arrays;
 

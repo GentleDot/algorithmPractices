@@ -1,4 +1,4 @@
-package search.naiveStringSearch;
+package howToSolve.search.naiveStringSearch;
 
 public class SearchString {
     public static void main(String[] args) {

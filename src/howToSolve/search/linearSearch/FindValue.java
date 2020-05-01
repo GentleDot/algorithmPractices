@@ -1,4 +1,4 @@
-package search.linearSearch;
+package howToSolve.search.linearSearch;
 
 public class FindValue {
     public static void main(String[] args) {

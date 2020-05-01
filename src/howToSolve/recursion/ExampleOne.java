@@ -1,4 +1,4 @@
-package recursion;
+package howToSolve.recursion;
 
 public class ExampleOne {
     public static void main(String[] args) {

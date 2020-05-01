@@ -1,4 +1,4 @@
-package commonSolvingPattern.frequencyCounter;
+package howToSolve.commonSolvingPattern.frequencyCounter;
 
 import java.util.Arrays;
 import java.util.List;

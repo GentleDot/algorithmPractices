@@ -1,4 +1,4 @@
-package commonSolvingPattern.multiplePointers;
+package howToSolve.commonSolvingPattern.multiplePointers;
 
 public class CountUniqueValues {
     public static void main(String[] args) {
