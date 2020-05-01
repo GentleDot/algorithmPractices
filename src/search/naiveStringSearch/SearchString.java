@@ -1,4 +1,4 @@
-package commonSolvingPattern.search.naiveStringSearch;
+package search.naiveStringSearch;
 
 public class SearchString {
     public static void main(String[] args) {

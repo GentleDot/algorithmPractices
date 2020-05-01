@@ -1,4 +1,4 @@
-package commonSolvingPattern.search.binarySearch;
+package search.binarySearch;
 
 public class SearchValue {
     public static void main(String[] args) {
