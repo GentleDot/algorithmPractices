@@ -1,4 +1,4 @@
-package howToSolve.sort;
+package howToSolve.sort.fundamental;
 
 import java.util.Arrays;
 
