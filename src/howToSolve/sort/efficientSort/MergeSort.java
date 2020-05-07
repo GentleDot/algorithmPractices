@@ -2,13 +2,42 @@ package howToSolve.sort.efficientSort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
+
+import static howToSolve.Main.log;
 
 public class MergeSort {
+
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(merge(new int[]{1, 10, 50}, new int[]{2, 14, 99, 100})));
+        /*System.out.println(Arrays.toString(merge(new int[]{1, 10, 50}, new int[]{2, 14, 99, 100})));
         System.out.println(Arrays.toString(merge(new int[]{100, 200}, new int[]{1, 2, 3, 4, 5})));
-        System.out.println(Arrays.toString(merge(new int[]{}, new int[]{1, 2, 3})));
+        System.out.println(Arrays.toString(merge(new int[]{}, new int[]{1, 2, 3})));*/
+
+        System.out.println(Arrays.toString(mergeSort(new int[]{1,3,6,2,8,2,5,9})));
     }
+
+    public static int[] mergeSort(int[] array) {
+        int length = array.length;
+        if (array.length <= 1) {
+            return array;
+        }
+
+        int middle = length / 2;
+
+        int[] left = Arrays.copyOfRange(array, 0, middle);
+        int[] right = Arrays.copyOfRange(array, middle, length);
+        log.debug("중앙 기준 좌측 배열 : {}", left);
+        log.debug("중앙 기준 우측 배열 : {}", right);
+
+        int[] sliceArray1 = mergeSort(left);
+        int[] sliceArray2 = mergeSort(right);
+
+        log.debug("병합 대상 배열 1 : {}", sliceArray1);
+        log.debug("병합 대상 배열 2 : {}", sliceArray2);
+
+        return merge(sliceArray1, sliceArray2);
+    }
+
 
     public static int[] merge(int[] array1, int[] array2) {
         // 전달받은 array length 확인
