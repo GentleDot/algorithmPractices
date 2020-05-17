@@ -74,4 +74,33 @@ public class SinglyLinkedList {
         return this;
     }
 
+    public SinglyLinkedList shift() {
+        // list에 node가 없으면 null을 반환
+        //     - head에 node가 없으면 list에 node가 없는 것으로 판단
+        if (this.head == null) {
+            return null;
+        }
+
+        // head node를 확인
+        Node current = this.head;
+
+        // head node의 다음 node를 head로 설정
+        this.head = current.getNext();
+
+        // list의 길이 감소 (-1)
+        this.length--;
+
+        // node가 head만 있다면 tail node도 head node와 같은 값으로 설정
+        // node가 없다면 tail = null 설정
+        if (this.length == 1) {
+            this.tail = head;
+        } else if (this.length == 0) {
+            this.tail = null;
+        }
+
+        // list 반환
+        System.out.println(current + " (이)가 처리되었습니다.");
+        return this;
+    }
+
 }

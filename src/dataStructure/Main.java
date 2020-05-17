@@ -11,5 +11,7 @@ public class Main {
         list.traverse();
         list.pop();
         list.traverse();
+        list.shift();
+        list.traverse();
     }
 }
