@@ -39,4 +39,39 @@ public class SinglyLinkedList {
         // list 반환
         return this;
     }
+
+    public SinglyLinkedList pop() {
+        // list에 node가 없으면 null을 반환
+        //     - head에 node가 없으면 list에 node가 없는 것으로 판단
+        if (this.head == null) {
+            return null;
+        }
+
+        // tail까지 loop
+        Node current = this.head;
+        Node targetNode = current;
+        while (current.getNext() != null) {
+            targetNode = current;
+            current = current.getNext();
+        }
+        // 마지막 node의 이전 node인 targetNode의 next를 null로 설정
+        targetNode.setNext(null);
+
+        // targetNode를 tail로 설정
+        this.tail = targetNode;
+
+        // 길이를 1 감소
+        this.length--;
+
+        // node가 없는 경우에는 head, tail의 node는 null
+        if (this.length == 0) {
+            this.head = null;
+            this.tail = null;
+        }
+
+        // list 반환
+        System.out.println(current + " (이)가 처리되었습니다.");
+        return this;
+    }
+
 }

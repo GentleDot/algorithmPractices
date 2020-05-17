@@ -9,5 +9,7 @@ public class Main {
         list.push("World");
         list.push("!!!");
         list.traverse();
+        list.pop();
+        list.traverse();
     }
 }
