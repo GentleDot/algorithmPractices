@@ -103,4 +103,24 @@ public class SinglyLinkedList {
         return this;
     }
 
+    public SinglyLinkedList unshift(String value) {
+        Node node = new Node(value);
+
+        // list에 node가 없으면 생성된 node를 head와 tail로 설정
+        // node가 있는 상태라면 생성된 node의 next를 head로 설정 후 생성된 node를 head로 설정
+        if (this.head == null) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            node.setNext(this.head);
+            this.head = node;
+        }
+
+        // list 길이 증가 (+1)
+        this.length++;
+
+        // list 반환환
+       return this;
+    }
+
 }

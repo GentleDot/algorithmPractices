@@ -13,5 +13,7 @@ public class Main {
         list.traverse();
         list.shift();
         list.traverse();
+        list.unshift("create new");
+        list.traverse();
     }
 }
