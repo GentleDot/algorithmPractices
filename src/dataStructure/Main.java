@@ -18,6 +18,12 @@ public class Main {
         System.out.println(list.get(0));
         System.out.println(list.set(5, "없는 index에 값 설정"));
         System.out.println(list.set(-1, "-index에는 값을 설정하지 못함"));
-
+        System.out.println("======");
+        list.insert(0, "this is");
+        list.insert(3, "program.");
+        list.insert(3, "simulator");
+        list.traverse();
+        list.remove(3);
+        list.traverse();
     }
 }

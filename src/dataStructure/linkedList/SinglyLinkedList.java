@@ -120,10 +120,10 @@ public class SinglyLinkedList {
         this.length++;
 
         // list 반환환
-       return this;
+        return this;
     }
 
-    public Node get(int index){
+    public Node get(int index) {
         // index가 0보다 작거나 length보다 크거나 같으면 null
         if (index < 0 || index >= this.length) {
             return null;
@@ -141,9 +141,9 @@ public class SinglyLinkedList {
         return current;
     }
 
-    public boolean set(int index, String value){
+    public boolean set(int index, String value) {
         Node foundNode = get(index);
-        if (foundNode != null){
+        if (foundNode != null) {
             foundNode.setVal(value);
             return true;
         }
@@ -151,5 +151,69 @@ public class SinglyLinkedList {
         return false;
     }
 
+    public boolean insert(int index, String value) {
+        // index가 0보다 작거나 length보다 크다면 false 반환
+        if (index < 0 || index > this.length) {
+            return false;
 
+            // index가 length와 같다면 list의 끝에 새 node를 push (push() 사용)
+        } else if (index == this.length) {
+            this.push(value);
+            return true;
+
+            // index가 0이라면 list의 시작에 새 node를 unshift (unshift() 사용)
+        } else if (index == 0) {
+            this.unshift(value);
+            return true;
+        }
+
+        // index가 처음 또는 끝이 아니라면
+        //     - 전달받은 value로 새 node를 생성
+        //     - get() 을 통해 index - 1 의 node인 prevNode를 조회
+        //     - prevNode.next 를 통해 index node인 tempNode를 확인
+        Node node = new Node(value);
+        Node prevNode = this.get(index - 1);
+        Node tempNode = prevNode.getNext();
+
+        // prevNode의 next를 새 node로 설정
+        // 새 node의 next를 tempNode로 설정
+        prevNode.setNext(node);
+        node.setNext(tempNode);
+
+        // list 길이를 +1 증가
+        this.length++;
+
+        // true 반환
+        return true;
+    }
+
+    public boolean remove(int index) {
+        // index가 0보다 작거나 length보다 크다면 false 반환
+        if (index < 0 || index > this.length) {
+            return false;
+        // index가 length - 1과 같다면 마지막 index를 pop
+        } else if (index == this.length - 1) {
+            this.pop();
+            return true;
+        // index가 0과 같다면 처음 index를 shift
+        } else if (index == 0) {
+            this.shift();
+            return true;
+        }
+
+        // index - 1 node 인 prevNode 조회
+        // prevNode.next 를 통해 tempNode 확인
+        Node prevNode = this.get(index - 1);
+        Node tempNode = prevNode.getNext();
+
+        // prevNode의 next를 tempNode의 next로 설정
+        prevNode.setNext(tempNode.getNext());
+
+        // list의 length -1 감소
+        this.length--;
+
+        // true 반환
+        System.out.println(tempNode + " (이)가 처리되었습니다.");
+        return true;
+    }
 }
