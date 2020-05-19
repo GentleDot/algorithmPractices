@@ -123,4 +123,33 @@ public class SinglyLinkedList {
        return this;
     }
 
+    public Node get(int index){
+        // index가 0보다 작거나 length보다 크거나 같으면 null
+        if (index < 0 || index >= this.length) {
+            return null;
+        }
+
+        // indexCounter가 전달받은 index에 도달할 때까지 loop
+        int indexCounter = 0;
+        Node current = this.head;
+
+        while (indexCounter != index) {
+            current = current.getNext();
+            indexCounter++;
+        }
+
+        return current;
+    }
+
+    public boolean set(int index, String value){
+        Node foundNode = get(index);
+        if (foundNode != null){
+            foundNode.setVal(value);
+            return true;
+        }
+
+        return false;
+    }
+
+
 }

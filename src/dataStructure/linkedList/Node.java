@@ -17,6 +17,10 @@ public class Node {
         return next;
     }
 
+    public void setVal(String val) {
+        this.val = val;
+    }
+
     public void setNext(Node node) {
         this.next = node;
     }
