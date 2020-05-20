@@ -1,5 +1,8 @@
 package dataStructure.linkedList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SinglyLinkedList {
     private Node head;
     private Node tail;
@@ -191,11 +194,11 @@ public class SinglyLinkedList {
         // index가 0보다 작거나 length보다 크다면 false 반환
         if (index < 0 || index > this.length) {
             return false;
-        // index가 length - 1과 같다면 마지막 index를 pop
+            // index가 length - 1과 같다면 마지막 index를 pop
         } else if (index == this.length - 1) {
             this.pop();
             return true;
-        // index가 0과 같다면 처음 index를 shift
+            // index가 0과 같다면 처음 index를 shift
         } else if (index == 0) {
             this.shift();
             return true;
@@ -215,5 +218,46 @@ public class SinglyLinkedList {
         // true 반환
         System.out.println(tempNode + " (이)가 처리되었습니다.");
         return true;
+    }
+
+    public SinglyLinkedList reverse() {
+        // node 수정을 위한 next, prev 변수 생성
+        Node next;
+        Node prev = null;
+
+        // list 탐색을 위해 시작 node를 head node에서 가져옴
+        Node current = this.head;
+
+        // head는 tail node로, tail은 head node로 변경
+        this.head = tail;
+        this.tail = current;
+
+        // list의 시작부터 끝까지 loop
+        while (current != null) {
+            // next 변수에 current.next 담기
+            next = current.getNext();
+
+            // current node의 next를 prev node로 설정
+            current.setNext(prev);
+
+            // prev를 current 값으로 설정
+            // current는 다음 노드로 (next) 설정
+            prev = current;
+            current = next;
+        }
+
+        return this;
+    }
+
+    public List<String> getList() {
+        ArrayList<String> list = new ArrayList<>();
+        Node current = this.head;
+
+        while (current != null) {
+            list.add(current.getVal());
+            current = current.getNext();
+        }
+
+        return list;
     }
 }

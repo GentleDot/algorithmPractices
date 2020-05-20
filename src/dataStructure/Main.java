@@ -25,5 +25,9 @@ public class Main {
         list.traverse();
         list.remove(3);
         list.traverse();
+        System.out.println(list.getList());
+        list.reverse();
+        System.out.println(list.getList());
+
     }
 }
