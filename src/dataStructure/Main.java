@@ -12,9 +12,17 @@ public class Main {
         favoriteFoodList.traverse();
         favoriteFoodList.push("자장밥");
         favoriteFoodList.traverse();
-        Node popedNode = favoriteFoodList.pop();
-        System.out.println(popedNode);
-        System.out.println(popedNode.getPrev());
+        Node poppedNode = favoriteFoodList.pop();
+        System.out.println(poppedNode);
+        System.out.println(poppedNode.getPrev());
+        favoriteFoodList.push("짬뽕");
+        favoriteFoodList.push("짬뽕밥");
+        Node shiftedNode = favoriteFoodList.shift();
+        System.out.println(shiftedNode + " ! shifted.");
+        favoriteFoodList.traverse();
+        favoriteFoodList.unshift("깐쇼새우");
+        favoriteFoodList.traverse();
+
     }
 
     private static void handleSinglyLinkedList() {
