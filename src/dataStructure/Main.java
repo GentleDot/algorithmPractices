@@ -1,15 +1,29 @@
 package dataStructure;
 
+import dataStructure.linkedList.DoublyLinkedList;
+import dataStructure.linkedList.Node;
 import dataStructure.linkedList.SinglyLinkedList;
 
 public class Main {
     public static void main(String[] args) {
+//        handleSinglyLinkedList();
+        DoublyLinkedList favoriteFoodList = new DoublyLinkedList();
+        favoriteFoodList.push("자장면");
+        favoriteFoodList.traverse();
+        favoriteFoodList.push("자장밥");
+        favoriteFoodList.traverse();
+        Node popedNode = favoriteFoodList.pop();
+        System.out.println(popedNode);
+        System.out.println(popedNode.getPrev());
+    }
+
+    private static void handleSinglyLinkedList() {
         SinglyLinkedList list = new SinglyLinkedList();
         list.push("Hello");
         list.push("World");
         list.push("!!!");
         list.traverse();
-        list.pop();
+        System.out.println(list.pop());
         list.traverse();
         list.shift();
         list.traverse();
@@ -28,6 +42,5 @@ public class Main {
         System.out.println(list.getList());
         list.reverse();
         System.out.println(list.getList());
-
     }
 }
