@@ -178,4 +178,80 @@ public class DoublyLinkedList {
         targetNode.setVal(value);
         return true;
     }
+
+    public boolean insert(int index, String value) {
+        // - 함수에 전달된 index가 0보다 작거나 length보다 크면 false 반환
+        if (index < 0 || index > length) {
+            return false;
+        }
+
+        // - 전달받은 value로 새 node 생성
+        Node node = new Node(value);
+
+        // - index가 0인 경우에는 unshift()로 node 삽입
+        if (index == 0) {
+            unshift(value);
+
+            // - index가 length와 동일하다면 push()로 node 삽입
+        } else if (index == length) {
+            push(value);
+
+            // - 그 외에는
+            //     - get() 을 사용하여 index - 1 값으로 node 조회 (prevNode)
+            //     - prevNode.next 로 index node 확인 (indexNode)
+            //     - prevNode의 next를 새 node로 설정
+            //     - 새 node의 prev는 prevNode로 설정
+            //     - 새 node의 next는 indexNode로 설정
+            //     - indexNode의 prev를 새 node로 설정
+        } else {
+            Node prevNode = get(index - 1);
+            Node indexNode = prevNode.getNext();
+
+            prevNode.setNext(node);
+            node.setPrev(prevNode);
+            node.setNext(indexNode);
+            indexNode.setPrev(node);
+        }
+
+        // - list의 길이 증가 +1
+        length++;
+
+        // - true를 반환
+        return true;
+    }
+
+    public Node remove(int index) {
+        Node targetNode = null;
+        // - 함수에 전달된 index가 0보다 작거나 length보다 크거나 같으면 null 반환
+        if (index < 0 || index >= length) {
+            return null;
+        } else if (index == 0) {
+            // - index가 0이라면 shift()로 node 제거
+            targetNode = shift();
+        } else if (index == (length - 1)) {
+            // - index가 length - 1과 같다면 pop() 으로 node 제거
+            targetNode = pop();
+        } else {
+            // - 그 외에는
+            //     - get()을 통해 제거할 node인 targetNode를 조회
+            //     - targetNode의 prev로 prevNode를 확인, targetNode의 next로 nextNode를 확인
+            //     - targetNode의 prev, next를 null 로 설정
+            //     - prevNode의 next를 nextNode로 설정
+            //     - nextNode의 prev를 prevNode로 설정
+            targetNode = get(index);
+            Node prevNode = targetNode.getPrev();
+            Node nextNode = targetNode.getNext();
+
+            targetNode.setPrev(null);
+            targetNode.setNext(null);
+            prevNode.setNext(nextNode);
+            nextNode.setPrev(prevNode);
+        }
+
+        // - 길이 감소 -1
+        length--;
+
+        // - 제거된 node를 반환
+        return targetNode;
+    }
 }

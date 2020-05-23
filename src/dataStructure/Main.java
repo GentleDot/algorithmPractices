@@ -26,6 +26,12 @@ public class Main {
         favoriteFoodList.set(0, "울면");
         System.out.println("======");
         favoriteFoodList.traverse();
+        favoriteFoodList.insert(3, "스테이크 피자");
+        System.out.println("======");
+        favoriteFoodList.traverse();
+        System.out.println(favoriteFoodList.remove(1));
+        System.out.println("======");
+        favoriteFoodList.traverse();
     }
 
     private static void handleSinglyLinkedList() {
