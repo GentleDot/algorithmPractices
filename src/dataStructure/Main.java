@@ -22,7 +22,10 @@ public class Main {
         favoriteFoodList.traverse();
         favoriteFoodList.unshift("깐쇼새우");
         favoriteFoodList.traverse();
-
+        System.out.println(favoriteFoodList.get(1));
+        favoriteFoodList.set(0, "울면");
+        System.out.println("======");
+        favoriteFoodList.traverse();
     }
 
     private static void handleSinglyLinkedList() {

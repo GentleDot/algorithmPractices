@@ -124,4 +124,58 @@ public class DoublyLinkedList {
         // - list 반환
         return this;
     }
+
+    public Node get(int index) {
+        Node current;
+        int count;
+
+        // - 전달 받는 index가 0보다 작거나 length보다 크거나 같으면 null을 반환
+        if (index < 0 || index >= length) {
+            return null;
+        }
+        // length의 절반 확인 (중간값)
+        int halfIndex = length / 2;
+
+        // - index가 length의 중간 또는 중간 이하의 값이라면 head부터 목록의 중간까지 next 탐색
+        // - index에 해당하는 node를 발견하면 node를 반환
+        if (index <= halfIndex) {
+            count = 0;
+            current = head;
+            while (index != count) {
+                current = current.getNext();
+                count++;
+            }
+        } else {
+            // - index가 length의 중간보다 큰 경우 tail에서 목록의 중간까지 prev 탐색
+            // - index에 해당하는 node를 발견하면 node를 반환
+            count = length - 1;
+            current = tail;
+            while (index != count) {
+                current = current.getPrev();
+                count--;
+            }
+        }
+
+        return current;
+    }
+
+    public boolean set(int index, String value) {
+        // 함수에 전달된 index가 0보다 작거나 length보다 크거나 같으면 false 반환
+        if (index < 0 || index >= length) {
+            return false;
+        }
+
+        // - 함수에 전달된 index에 해당하는 node를 get()을 이용해 조회
+        Node targetNode = get(index);
+
+        // - 유효한 node가 조회되지 않으면 false 반환
+        if (targetNode == null) {
+            return false;
+        }
+
+        // - get()에서 유효한 node를 반환하면 해당 node 값을 전달받은 값으로 설정
+        // - 정상적으로 처리되면 true 반환
+        targetNode.setVal(value);
+        return true;
+    }
 }
