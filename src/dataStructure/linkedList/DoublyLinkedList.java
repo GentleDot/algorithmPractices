@@ -254,4 +254,35 @@ public class DoublyLinkedList {
         // - 제거된 node를 반환
         return targetNode;
     }
+
+    public DoublyLinkedList reverse() {
+        // node 수정을 위한 nextNode, prevNode 변수 생성
+        Node nextNode;
+        Node prevNode;
+
+        // list 탐색을 위해 시작 node를 tail node에서 가져옴
+        Node current = tail;
+
+        // tail은 head node로, head는 tail node로 변경
+        tail = head;
+        head = current;
+
+        // list의 시작부터 끝까지 prev()로 loop
+        while (current != null) {
+            // prevNode 변수에 current.next 담기
+            // nextNode 변수에 current.prev 담기
+            prevNode = current.getNext();
+            nextNode = current.getPrev();
+
+            // current node의 prev를 prevNode로 설정
+            // current node의 next를 nextNode로 설정
+            current.setPrev(prevNode);
+            current.setNext(nextNode);
+
+            // current는 nextNode로 (current.prev) 설정
+            current = nextNode;
+        }
+
+        return this;
+    }
 }

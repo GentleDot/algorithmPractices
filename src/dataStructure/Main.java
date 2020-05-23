@@ -32,6 +32,9 @@ public class Main {
         System.out.println(favoriteFoodList.remove(1));
         System.out.println("======");
         favoriteFoodList.traverse();
+        System.out.println("=======");
+        favoriteFoodList.reverse();
+        favoriteFoodList.traverse();
     }
 
     private static void handleSinglyLinkedList() {
