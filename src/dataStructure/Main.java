@@ -3,10 +3,26 @@ package dataStructure;
 import dataStructure.linkedList.DoublyLinkedList;
 import dataStructure.linkedList.Node;
 import dataStructure.linkedList.SinglyLinkedList;
+import dataStructure.linkedList.Stack;
 
 public class Main {
     public static void main(String[] args) {
 //        handleSinglyLinkedList();
+//        handleDoublyLinkedList();
+        handleStack();
+    }
+
+    private static void handleStack() {
+        Stack stack = new Stack();
+        stack.push("first");
+        stack.push("second");
+        System.out.println(stack.push("third"));
+        System.out.println("======");
+        stack.pop();
+        stack.traverse();
+    }
+
+    private static void handleDoublyLinkedList() {
         DoublyLinkedList favoriteFoodList = new DoublyLinkedList();
         favoriteFoodList.push("자장면");
         favoriteFoodList.traverse();
