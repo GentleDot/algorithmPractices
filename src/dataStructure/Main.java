@@ -1,15 +1,39 @@
 package dataStructure;
 
-import dataStructure.linkedList.DoublyLinkedList;
-import dataStructure.linkedList.Node;
-import dataStructure.linkedList.SinglyLinkedList;
-import dataStructure.linkedList.Stack;
+import dataStructure.linkedList.*;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 //        handleSinglyLinkedList();
 //        handleDoublyLinkedList();
-        handleStack();
+//        handleStack();
+//        queueStructureWithArray();
+        Queue queue = new Queue();
+        queue.enqueue("라면 봉지를 뜯는다.");
+        queue.enqueue("물 550ml를 넣고");
+        queue.enqueue("건더기 스프, 양념 스프를 넣고");
+        queue.enqueue("3분 정도 끓인 뒤");
+        queue.enqueue("면을 넣고");
+        queue.enqueue("2분 정도 더 끓인다.");
+        queue.enqueue("5분 라면 완성");
+        queue.traverse();
+        System.out.println("======");
+        System.out.println(queue.dequeue());
+        System.out.println("======");
+        queue.traverse();
+
+    }
+
+    private static void queueStructureWithArray() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add(0, "첫 번째");
+        list.add(0, "두 번째");
+        list.add(0, "세 번째");
+        System.out.println(list);
+        list.remove(list.size() - 1);
+        System.out.println(list);
     }
 
     private static void handleStack() {
