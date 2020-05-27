@@ -1,6 +1,7 @@
 package dataStructure;
 
 import dataStructure.linkedList.*;
+import dataStructure.tree.BinarySearchTree;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,23 @@ public class Main {
 //        handleDoublyLinkedList();
 //        handleStack();
 //        queueStructureWithArray();
+//        handleQueue();
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.insert(10);
+        tree.insert(5);
+        tree.insert(13);
+        tree.insert(2);
+        tree.insert(7);
+        tree.insert(11);
+        tree.insert(16);
+
+        System.out.println(tree.toString());
+
+        System.out.println(tree.find(6));
+        System.out.println(tree.find(11));
+    }
+
+    private static void handleQueue() {
         Queue queue = new Queue();
         queue.enqueue("라면 봉지를 뜯는다.");
         queue.enqueue("물 550ml를 넣고");
@@ -23,7 +41,6 @@ public class Main {
         System.out.println(queue.dequeue());
         System.out.println("======");
         queue.traverse();
-
     }
 
     private static void queueStructureWithArray() {
