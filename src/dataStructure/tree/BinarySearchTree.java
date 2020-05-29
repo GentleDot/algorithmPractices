@@ -7,6 +7,10 @@ public class BinarySearchTree {
         this.root = null;
     }
 
+    public Node getRoot() {
+        return root;
+    }
+
     public BinarySearchTree insert(Integer value) {
         if (value == null) {
             return this;

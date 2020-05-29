@@ -2,8 +2,10 @@ package dataStructure;
 
 import dataStructure.linkedList.*;
 import dataStructure.tree.BinarySearchTree;
+import dataStructure.tree.TraversingUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +14,21 @@ public class Main {
 //        handleStack();
 //        queueStructureWithArray();
 //        handleQueue();
+//        handleBSTree();
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.insert(10);
+        tree.insert(6);
+        tree.insert(15);
+        tree.insert(3);
+        tree.insert(8);
+        tree.insert(20);
+        List<Integer> integerList = TraversingUtil.breadthfirstSearch(tree);
+        System.out.println(integerList.toString());
+
+
+    }
+
+    private static void handleBSTree() {
         BinarySearchTree tree = new BinarySearchTree();
         tree.insert(10);
         tree.insert(5);
