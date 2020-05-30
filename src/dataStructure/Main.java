@@ -22,9 +22,9 @@ public class Main {
         tree.insert(3);
         tree.insert(8);
         tree.insert(20);
-        List<Integer> integerList = TraversingUtil.breadthfirstSearch(tree);
-        System.out.println(integerList.toString());
-
+//        List<Integer> integerList = TraversingUtil.breadthfirstSearch(tree);
+//        System.out.println(integerList.toString());
+        System.out.println(TraversingUtil.depthfirstSearchInOrder(tree));
 
     }
 
