@@ -24,7 +24,15 @@ public class Main {
         tree.insert(20);
 //        List<Integer> integerList = TraversingUtil.breadthfirstSearch(tree);
 //        System.out.println(integerList.toString());
-        System.out.println(TraversingUtil.depthfirstSearchInOrder(tree));
+        /*
+            parameter :
+                tree = 생성된 BinarySearchTree,
+                orderType = 탐색 방법 설정 (IN = InOrder, PRE = PreOrder, POST = PostOrder)
+         */
+        System.out.println(TraversingUtil.depthfirstSearch(tree, "IN"));
+        System.out.println(TraversingUtil.depthfirstSearch(tree, "PRE"));
+        System.out.println(TraversingUtil.depthfirstSearch(tree, "POST"));
+
 
     }
 
