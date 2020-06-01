@@ -24,6 +24,23 @@ public class MaxBinaryHeap {
         bubbleUp();
     }
 
+    public Integer remove() {
+        int size = this.values.size();
+        // - root value를 담은 변수 maxValue 생성
+        Integer maxValue = this.values.get(0);
+        // - values list에서 마지막 값을 pop()하여 제거하고 제거된 값은 endValue에 담기
+        Integer endValue = this.values.remove(size - 1);
+        if (size > 0) {
+            // - values의 root를 endValue로 교체
+            this.values.set(0, endValue);
+            // root를 올바른 지점으로 이동시키기 위한 sink down을 진행
+            sinkDown();
+        }
+
+        // maxValue를 return
+        return maxValue;
+    }
+
     private void bubbleUp() {
         // - index를 length - 1 로 설정, index value 변수 element 생성
         int index = this.values.size() - 1;
@@ -45,5 +62,58 @@ public class MaxBinaryHeap {
                 break;
             }
         }
+    }
+
+    private void sinkDown() {
+        // - parentIndex를 0부터 시작 (root), value를 element 변수에 저장
+        int parentIndex = 0;
+        int size = this.values.size();
+        Integer element = this.values.get(parentIndex);
+        // - child index 확인 (단, list의 범위를 벗어나지 않아야 함)
+        // - child 가 element보다 크지 않을 때까지 loop를 반복 (swap 진행)
+        while (true) {
+            // - parent의 left child를 확인 : leftChildIndex = 2n + 1 = 2 * parentIndex + 1
+            int leftChildIndex = 2 * parentIndex + 1;
+            // - parent의 right child를 확인 : rightChildIndex = 2n + 2 = 2 * parentIndex + 2
+            int rightChildIndex = 2 * parentIndex + 2;
+            // - left 또는 right child가 element보다 크다면 위치 swap
+            Integer leftChild = null;
+            Integer rightChild = null;
+            Integer temp = null;
+
+            //      - leftChildIndex가 size를 넘지 않을 때
+            //      - leftChildIndex를 통해 leftChild를 가져오고
+            //      - leftChild가 parent보다 크다면 swap 대상을 leftChildIndex로 설정
+            if (leftChildIndex < size) {
+                leftChild = this.values.get(leftChildIndex);
+                if (leftChild > element) {
+                    temp = leftChildIndex;
+                }
+            }
+
+            //      - leftChild 비교 후 rightChildIndex가 size를 넘지 않을 때
+            //      - rightChildIndex를 통해 rightChild를 가져오고
+            //      - leftChild가 swap 대상이 아니고 rightChild가 parent보다 클 때
+            //      또는 leftChild가 swap 대상인 상태에서 rightChild가 leftChild보다 클 때
+            //      swap 대상을 rightChildIndex로 설정
+            if (rightChildIndex < size) {
+                rightChild = this.values.get(rightChildIndex);
+                if ((temp == null && rightChild > element)
+                        || (temp != null && rightChild > leftChild)) {
+                    temp = rightChildIndex;
+                }
+            }
+
+            // swap 대상이 없다면 loop를 break
+            if (temp == null) {
+                break;
+            }
+
+            // - swap 대상이 존재하면 swap 과정을 진행하고 교체된 child index는 새로운 parentIndex가 됨
+            this.values.set(parentIndex, this.values.get(temp));
+            this.values.set(temp, element);
+            parentIndex = temp;
+        }
+
     }
 }

@@ -15,5 +15,8 @@ public class Main {
         binaryHeap.insert(55);
         System.out.println("======");
         System.out.println(binaryHeap);
+        System.out.println(binaryHeap.remove());
+        System.out.println("======");
+        System.out.println(binaryHeap);
     }
 }
