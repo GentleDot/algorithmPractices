@@ -14,6 +14,10 @@ public class Main {
         priorityQueue.enqueue("27", 7);
         priorityQueue.enqueue("12", 3);
         System.out.println(priorityQueue);
+        System.out.println("======");
+        System.out.println(priorityQueue.dequeue());
+        System.out.println("======");
+        System.out.println(priorityQueue);
     }
 
     private static void handleBinaryHeap() {
