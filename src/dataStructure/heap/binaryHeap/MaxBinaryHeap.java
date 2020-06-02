@@ -1,4 +1,4 @@
-package dataStructure.heap.maxBinaryHeap;
+package dataStructure.heap.binaryHeap;
 
 import java.util.ArrayList;
 import java.util.List;

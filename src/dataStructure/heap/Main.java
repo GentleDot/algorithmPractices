@@ -1,9 +1,22 @@
 package dataStructure.heap;
 
-import dataStructure.heap.maxBinaryHeap.MaxBinaryHeap;
+import dataStructure.heap.binaryHeap.MaxBinaryHeap;
+import dataStructure.heap.priorityQueue.PriorityQueue;
 
 public class Main {
     public static void main(String[] args) {
+//        handleBinaryHeap();
+        PriorityQueue priorityQueue = new PriorityQueue();
+        priorityQueue.enqueue("41", 10);
+        priorityQueue.enqueue("39", 9);
+        priorityQueue.enqueue("33", 8);
+        priorityQueue.enqueue("18", 5);
+        priorityQueue.enqueue("27", 7);
+        priorityQueue.enqueue("12", 3);
+        System.out.println(priorityQueue);
+    }
+
+    private static void handleBinaryHeap() {
         MaxBinaryHeap binaryHeap = new MaxBinaryHeap();
         binaryHeap.insert(41);
         binaryHeap.insert(39);
