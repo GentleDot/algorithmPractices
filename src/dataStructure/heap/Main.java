@@ -7,12 +7,12 @@ public class Main {
     public static void main(String[] args) {
 //        handleBinaryHeap();
         PriorityQueue priorityQueue = new PriorityQueue();
-        priorityQueue.enqueue("41", 10);
-        priorityQueue.enqueue("39", 9);
-        priorityQueue.enqueue("33", 8);
-        priorityQueue.enqueue("18", 5);
-        priorityQueue.enqueue("27", 7);
-        priorityQueue.enqueue("12", 3);
+        priorityQueue.enqueue("12", 12);
+        priorityQueue.enqueue("18", 18);
+        priorityQueue.enqueue("23", 23);
+        priorityQueue.enqueue("29", 29);
+        priorityQueue.enqueue("51", 51);
+        priorityQueue.enqueue("44", 44);
         System.out.println(priorityQueue);
         System.out.println("======");
         System.out.println(priorityQueue.dequeue());

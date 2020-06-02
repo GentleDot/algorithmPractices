@@ -35,11 +35,11 @@ public class PriorityQueue {
             int parentIndex = (index - 1) / 2;
             Node parent = this.values.get(parentIndex);
 
-            // - element가 parent보다 큰 경우 parentIndex는 element로 elementIndex는 parent로 위치 변경
+            // - element가 parent보다 작은 경우 parentIndex는 element로 elementIndex는 parent로 위치 변경
             // - index를 parentIndex로 변경
-            if (element.getPriority() > parent.getPriority()) {
-                this.values.set(index, parent);
+            if (element.getPriority() < parent.getPriority()) {
                 this.values.set(parentIndex, element);
+                this.values.set(index, parent);
                 index = parentIndex;
             } else {
                 break;
@@ -49,8 +49,8 @@ public class PriorityQueue {
 
     public Node dequeue() {
         int size = this.values.size();
-        // - root value를 담은 변수 maxValue 생성
-        Node maxValue = this.values.get(0);
+        // - root value를 담은 변수 minValue 생성
+        Node minValue = this.values.get(0);
         // - values list에서 마지막 값을 pop()하여 제거하고 제거된 값은 endValue에 담기
         Node endValue = this.values.remove(size - 1);
         if (size > 0) {
@@ -61,7 +61,7 @@ public class PriorityQueue {
         }
 
         // maxValue를 return
-        return maxValue;
+        return minValue;
     }
 
     private void sinkDown() {
@@ -83,23 +83,23 @@ public class PriorityQueue {
 
             //      - leftChildIndex가 size를 넘지 않을 때
             //      - leftChildIndex를 통해 leftChild를 가져오고
-            //      - leftChild가 parent보다 크다면 swap 대상을 leftChildIndex로 설정
+            //      - leftChild가 parent보다 작다면 swap 대상을 leftChildIndex로 설정
             if (leftChildIndex < size) {
                 leftChild = this.values.get(leftChildIndex);
-                if (leftChild.getPriority() > element.getPriority()) {
+                if (leftChild.getPriority() < element.getPriority()) {
                     temp = leftChildIndex;
                 }
             }
 
             //      - leftChild 비교 후 rightChildIndex가 size를 넘지 않을 때
             //      - rightChildIndex를 통해 rightChild를 가져오고
-            //      - leftChild가 swap 대상이 아니고 rightChild가 parent보다 클 때
-            //      또는 leftChild가 swap 대상인 상태에서 rightChild가 leftChild보다 클 때
+            //      - leftChild가 swap 대상이 아니고 rightChild가 parent보다 작을 때
+            //      또는 leftChild가 swap 대상인 상태에서 rightChild가 leftChild보다 작을 때
             //      swap 대상을 rightChildIndex로 설정
             if (rightChildIndex < size) {
                 rightChild = this.values.get(rightChildIndex);
-                if ((temp == null && rightChild.getPriority() > element.getPriority())
-                        || (temp != null && rightChild.getPriority() > leftChild.getPriority())) {
+                if ((temp == null && rightChild.getPriority() < element.getPriority())
+                        || (temp != null && rightChild.getPriority() < leftChild.getPriority())) {
                     temp = rightChildIndex;
                 }
             }
