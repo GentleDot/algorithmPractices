@@ -25,7 +25,12 @@ public class Main {
         colorTable.set("yellow", "#FFFF00");
         colorTable.set("lightcoral", "#F08080");
         System.out.println("======");
-        System.out.println(Arrays.toString(colorTable.get("yellow")));
+        System.out.println(Arrays.toString(colorTable.get("maroon")));
+        System.out.println(colorTable.keys());;
+        System.out.println(colorTable.values());;
+        colorTable.set("maroon", "#800001");
+        System.out.println("======");
+        System.out.println(Arrays.toString(colorTable.get("maroon")));
         System.out.println(colorTable.keys());;
         System.out.println(colorTable.values());;
     }

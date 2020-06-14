@@ -3,7 +3,7 @@ package dataStructure.hashTable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import static howToSolve.Main.log;
 
@@ -40,9 +40,7 @@ public class HashTable {
             char charValue = key.charAt(i);
             int value = charValue - 96;
 
-//            log.info("value : {} // total * primeNumber + value = {}", value, ((total * primeNumber) + value));
             total = ((total * primeNumber) + value) % keyMapSize;
-//            log.info("total = {}", total);
         }
 
         return total;
@@ -51,12 +49,15 @@ public class HashTable {
     public void set(String key, String value) {
         int index = hash(key);
         log.info("key hashing : {}", index);
+        String[] newItem = {key, value};
 
-        if (this.keyMap.get(index) == null) {
-            this.keyMap.set(index, new ArrayList<>());
+
+        if (this.keyMap.get(index).isEmpty()) {
+            this.keyMap.set(index, new ArrayList<>());  // empty 상태에서 새 arrayList를 추가
+        } else {
+            this.keyMap.get(index).removeIf(pair -> pair[0].equals(key));   // key에 해당하는 pair를 제거 (pair가 없다면 아무 동작 없음)
         }
-
-        this.keyMap.get(index).add(new String[]{key, value});
+        this.keyMap.get(index).add(newItem); // 새로운 pair를 추가
     }
 
     public String[] get(String key) {
@@ -72,7 +73,7 @@ public class HashTable {
 
     public List<String> keys() {
         ArrayList<String> result = new ArrayList<>();
-        this.keyMap.stream().forEach(pairs -> {
+        this.keyMap.forEach(pairs -> {
             pairs.forEach(strList -> result.add(strList[0]));
         });
 
@@ -81,7 +82,7 @@ public class HashTable {
 
     public List<String> values() {
         ArrayList<String> result = new ArrayList<>();
-        this.keyMap.stream().forEach(pairs -> {
+        this.keyMap.forEach(pairs -> {
             pairs.forEach(strList -> result.add(strList[1]));
         });
 
