@@ -70,6 +70,24 @@ public class HashTable {
         return null;
     }
 
+    public List<String> keys() {
+        ArrayList<String> result = new ArrayList<>();
+        this.keyMap.stream().forEach(pairs -> {
+            pairs.forEach(strList -> result.add(strList[0]));
+        });
+
+        return result;
+    }
+
+    public List<String> values() {
+        ArrayList<String> result = new ArrayList<>();
+        this.keyMap.stream().forEach(pairs -> {
+            pairs.forEach(strList -> result.add(strList[1]));
+        });
+
+        return result;
+    }
+
     @SuppressWarnings("unchecked")
     public int findCapacity() throws Exception {
 

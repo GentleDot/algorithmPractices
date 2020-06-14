@@ -26,5 +26,7 @@ public class Main {
         colorTable.set("lightcoral", "#F08080");
         System.out.println("======");
         System.out.println(Arrays.toString(colorTable.get("yellow")));
+        System.out.println(colorTable.keys());;
+        System.out.println(colorTable.values());;
     }
 }
