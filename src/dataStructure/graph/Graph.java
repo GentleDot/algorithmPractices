@@ -33,4 +33,21 @@ public class Graph {
             this.adjacencyList.get(vertex2).add(vertex1);
         }
     }
+
+    public void removeEdge(String vertex1, String vertex2) {
+        if (this.adjacencyList.containsKey(vertex1) &&
+                this.adjacencyList.containsKey(vertex2)) {
+            this.adjacencyList.get(vertex1).removeIf(vertex -> vertex.equals(vertex2));
+            this.adjacencyList.get(vertex2).removeIf(vertex -> vertex.equals(vertex1));
+        }
+    }
+
+    public void removeVertex(String targetVertex) {
+        if (this.adjacencyList.containsKey(targetVertex)) {
+            this.adjacencyList.get(targetVertex).forEach(vertex -> {
+                this.adjacencyList.get(vertex).removeIf(itemVertex -> itemVertex.equals(targetVertex));
+            });
+            this.adjacencyList.remove(targetVertex);
+        }
+    }
 }
