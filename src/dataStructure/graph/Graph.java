@@ -58,22 +58,38 @@ public class Graph {
     }
 
     public List<String> depthFirstRecursive(String startVertex) {
+        // - 최종 결과를 저장할 list를 생성 (= result)
+        // - 방문한 vertex를 저장할 map 생성 (= visited)
+        // 해당 list와 map은 다른 method에서도 참조할 수 있도록 field로 설정
         result = new ArrayList<>();
         visited = new HashMap<>();
+
+        // - vertex를 방문하는 helper function을 실행 (시작 vertex를 parameter로 전달)
         helperDfs(startVertex);
+
+        // - helper 실행이 마무리 된 뒤에 결과 list인 result를 반환
         return result;
     }
 
     private void helperDfs(String vertex) {
+        log.info("======");
+        log.info("방문한 vertex : {}", vertex);
+        // - vertex가 null 이라면 return (base case)
         if (vertex == null) {
             return;
         }
 
+        // - visited에 해당 vertex를 방문 기록 : put(vertex, true)
+        // - result에 해당 vertex를 기록 : add(vertex)
         visited.put(vertex, true);
         result.add(vertex);
 
+        // - 인접 목록 중 vertex와 연결된 모든 vertex (neighbor)를 반복
         adjacencyList.get(vertex).forEach(neighbor -> {
+
+            // - 해당 vertex가 visited에 방문 기록되어 있지 않다면 helper를 호출 : helper(neighbor)
             if (!visited.containsKey(neighbor)) {
+                log.info("대상 vertex : {} / 이웃 vertex : {}", vertex, adjacencyList.get(vertex));
                 helperDfs(neighbor);
             }
         });

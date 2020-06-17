@@ -39,6 +39,8 @@ public class Main {
         graph.addEdge("D", "F");
         graph.addEdge("E", "F");
 
+        System.out.println(graph);
+
         System.out.println(graph.depthFirstRecursive("A"));
     }
 }
