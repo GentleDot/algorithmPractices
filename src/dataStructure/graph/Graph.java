@@ -1,12 +1,18 @@
 package dataStructure.graph;
 
+import howToSolve.Main;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static howToSolve.Main.log;
+
 public class Graph {
-    Map<String, List<String>> adjacencyList;
+    private Map<String, List<String>> adjacencyList;
+    private ArrayList<String> result;
+    private HashMap<String, Boolean> visited;
 
     public Graph() {
         this.adjacencyList = new HashMap();
@@ -49,5 +55,27 @@ public class Graph {
             });
             this.adjacencyList.remove(targetVertex);
         }
+    }
+
+    public List<String> depthFirstRecursive(String startVertex) {
+        result = new ArrayList<>();
+        visited = new HashMap<>();
+        helperDfs(startVertex);
+        return result;
+    }
+
+    private void helperDfs(String vertex) {
+        if (vertex == null) {
+            return;
+        }
+
+        visited.put(vertex, true);
+        result.add(vertex);
+
+        adjacencyList.get(vertex).forEach(neighbor -> {
+            if (!visited.containsKey(neighbor)) {
+                helperDfs(neighbor);
+            }
+        });
     }
 }
