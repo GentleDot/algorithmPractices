@@ -1,7 +1,5 @@
 package dataStructure.graph;
 
-import howToSolve.Main;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +66,47 @@ public class Graph {
         helperDfs(startVertex);
 
         // - helper 실행이 마무리 된 뒤에 결과 list인 result를 반환
+        return result;
+    }
+
+    public List<String> depthFirstIterative(String startVertex) {
+        // - vertex 추적에 용이하도록 stack list 생성
+        // - vertex 방문 기록을 위한 map 생성 (visited)
+        // - 최종 결과를 저장할 list 생성 (result)
+        ArrayList<String> stack = new ArrayList<>();
+        result = new ArrayList<>();
+        visited = new HashMap<>();
+
+        // - stack에 start vertex 추가 : add()
+        // - start vertex를 방문 기록 : put(vertex, true)
+        stack.add(startVertex); // push
+        visited.put(startVertex, true);
+
+        // - stack이 비어있지 않는 동안 loop
+        while (!stack.isEmpty()) {
+            // - stack에서 vertex 꺼내기 : pop()
+            String currentVertex = stack.remove(stack.size() - 1); // pop
+
+            // - result list에 꺼낸 vertex를 추가 : add()
+            result.add(currentVertex);
+
+//            this.adjacencyList.get(currentVertex).forEach(stack::add);
+//            stack.addAll(this.adjacencyList.get(currentVertex));
+
+            // - 꺼낸 vertex의 이웃을 전부 처리
+            this.adjacencyList.get(currentVertex).forEach(neighbor -> {
+                // - 꺼낸 vertex가 아직 방문한 상태가 아니라면
+                if (!visited.containsKey(neighbor)) {
+                    // - vertex를 방문 기록 put(vertex, true)
+                    // - vertex의 모든 이웃 (neighbors)을 stack에 push
+                    visited.put(neighbor, true);
+                    stack.add(neighbor);
+                    log.info("대상 vertex : {} / 이웃 vertex : {} / stack : {}", currentVertex, adjacencyList.get(currentVertex), stack);
+                }
+            });
+        }
+
+        // - result list를 반환
         return result;
     }
 

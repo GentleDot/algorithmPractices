@@ -1,7 +1,5 @@
 package dataStructure.graph;
 
-import static howToSolve.Main.log;
-
 public class Main {
     public static void main(String[] args) {
         /*Graph graph = new Graph();
@@ -42,6 +40,8 @@ public class Main {
         System.out.println(graph);
 
         System.out.println(graph.depthFirstRecursive("A"));
+        System.out.println("======================================");
+        System.out.println(graph.depthFirstIterative("A"));
     }
 }
 
