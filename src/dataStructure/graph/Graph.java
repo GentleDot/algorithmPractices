@@ -110,6 +110,40 @@ public class Graph {
         return result;
     }
 
+    public List<String> breadthFirstIterative(String startVertex) {
+        // - 대기열 (queue)를 list로 생성하고 starting vertex를 enqueue
+        ArrayList<String> queue = new ArrayList<>();
+        queue.add(startVertex);
+        // - 방문한 vertex를 결과로 저장할 list 생성
+        // - 방문 내역을 기록할 visited map 생성
+        result = new ArrayList<>();
+        visited = new HashMap<>();
+        // - starting vertex를 방문 기록
+        visited.put(startVertex, true);
+        // - queue의 item이 있는 동안 loop
+        while (!queue.isEmpty()){
+            // - dequeue 로 vertex를 꺼내고
+            String targetVertex = queue.remove(0);
+            // - 방문 결과 list에 add
+            result.add(targetVertex);
+
+            // - 인접 목록 (adjacency list)내 모든 vertex를 처리
+            this.adjacencyList.get(targetVertex).forEach(neighbor -> {
+                // - 방문 기록이 없는 vertex라면
+                if (!visited.containsKey(neighbor)) {
+                    // - 해당 vertex를 방문 기록
+                    // - queue에 enqueue
+                    visited.put(neighbor, true);
+                    queue.add(neighbor);
+                    log.info("대상 vertex : {} / 이웃 vertex : {} / stack : {}", targetVertex, adjacencyList.get(targetVertex), queue);
+                }
+            });
+        }
+
+        // - 방문 결과인 list를 반환
+        return result;
+    }
+
     private void helperDfs(String vertex) {
         log.info("======");
         log.info("방문한 vertex : {}", vertex);
