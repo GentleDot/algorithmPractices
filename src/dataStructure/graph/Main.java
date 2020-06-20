@@ -1,11 +1,12 @@
 package dataStructure.graph;
 
+import dataStructure.graph.dijkstra.PriorityQueue;
 import dataStructure.graph.dijkstra.WeightedGraph;
 
 public class Main {
     public static void main(String[] args) {
 //        handleGraph();
-        WeightedGraph graph = new WeightedGraph();
+        /*WeightedGraph graph = new WeightedGraph();
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
@@ -14,7 +15,15 @@ public class Main {
         graph.addEdge("A", "C", 5);
         graph.addEdge("B", "C", 7);
 
-        System.out.println(graph);
+        System.out.println(graph);*/
+
+        PriorityQueue queue = new PriorityQueue();
+        queue.enqueue("B", 3);
+        queue.enqueue("C", 5);
+        queue.enqueue("D", 2);
+        queue.enqueue("Q", 1);
+
+        System.out.println(queue);
     }
 
     private static void handleGraph() {
