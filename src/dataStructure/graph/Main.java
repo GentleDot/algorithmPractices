@@ -1,7 +1,23 @@
 package dataStructure.graph;
 
+import dataStructure.graph.dijkstra.WeightedGraph;
+
 public class Main {
     public static void main(String[] args) {
+//        handleGraph();
+        WeightedGraph graph = new WeightedGraph();
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+
+        graph.addEdge("A", "B", 9);
+        graph.addEdge("A", "C", 5);
+        graph.addEdge("B", "C", 7);
+
+        System.out.println(graph);
+    }
+
+    private static void handleGraph() {
         /*Graph graph = new Graph();
 
         graph.addVertex("A");
