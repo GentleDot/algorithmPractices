@@ -3,15 +3,19 @@ package dataStructure.graph.dijkstra;
 import java.util.*;
 
 public class PriorityQueue {
-    List<Map<String, Object>> values;
+    private List<Map<String, Object>> values;
 
     public PriorityQueue() {
         this.values = new ArrayList<>();
     }
 
+    public List<Map<String, Object>> getValues() {
+        return values;
+    }
+
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("PriorityQueue{");
+        final StringBuilder sb = new StringBuilder("PriorityQueue{");
         sb.append("values=").append(values);
         sb.append('}');
         return sb.toString();
