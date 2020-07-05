@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 /*
-* HackerRank - Sherlock And Anagrams
-* https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
-* */
+ * HackerRank - Sherlock And Anagrams
+ * https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
+ * */
 public class SherlockAndAnagrams2 {
     // Complete the sherlockAndAnagrams function below.
     static int sherlockAndAnagrams(String s) {
