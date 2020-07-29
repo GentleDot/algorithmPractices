@@ -1,15 +1,31 @@
-public class TempSum {
+public class TempProcessing {
     public static void main(String[] args) {
-        /*int i = 999;
-        boolean contains = String.valueOf(i).contains("3");
-        System.out.println(i % 3);
-        System.out.println(contains);
-        System.out.println(i % 10);*/
-        int[] ints = new int[1001];
+        /*int[] ints = new int[1001];
         for (int i = 1; i <= 1000; i++) {
             ints[i] = i;
         }
-        System.out.println(sumArrayNum(ints));
+        System.out.println(sumArrayNum(ints));*/
+
+        System.out.println(compareStrings("abcde", "abc"));
+    }
+
+    private static int compareStrings(String baseStr, String otherStr) {
+        // 같은 문자열은 0
+        // 다른 문자열은 ascii 오름차순
+        // 길이가 다른 문자열은 내림차순 비교
+
+        int baseLength = baseStr.length();
+        int otherLength = otherStr.length();
+
+        int limit = Math.min(baseLength, otherLength);
+        for (int i = 0; i < limit; i++) {
+            int baseChar = baseStr.charAt(i);
+            int otherChar = otherStr.charAt(i);
+            if (baseChar != otherChar) {
+                return baseChar - otherChar;
+            }
+        }
+        return otherLength - baseLength;
     }
 
     private static long sumArrayNum(int[] numbers) {
